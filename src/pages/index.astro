@@ -1,0 +1,404 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GradientBackground from '../components/GradientBackground';
+---
+
+<Layout>
+	<GradientBackground client:only="react" />
+
+	<nav id="sidebar">
+		<a href="#about" data-section="about">About</a>
+		<a href="#experience" data-section="experience">Experience</a>
+		<a href="#projects" data-section="projects">Projects</a>
+		<a href="#contact" data-section="contact">Contact</a>
+	</nav>
+
+	<main>
+		<div class="intro" id="intro">
+			<h1 id="name"></h1>
+			<p id="first-para"></p>
+		</div>
+
+		<section id="about">
+			<p>
+				Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit
+				anim id est laborum.
+			</p>
+			<p>
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+				accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+				quae ab illo inventore veritatis et quasi architecto beatae vitae
+				dicta sunt explicabo.
+			</p>
+			<p>
+				Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+				aut fugit, sed quia consequuntur magni dolores eos qui ratione
+				voluptatem sequi nesciunt.
+			</p>
+		</section>
+
+		<section id="experience">
+			<p>
+				Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+				consectetur, adipisci velit, sed quia non numquam eius modi tempora
+				incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+			</p>
+			<p>
+				Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+				suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
+				autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+				nihil molestiae consequatur.
+			</p>
+			<p>
+				At vero eos et accusamus et iusto odio dignissimos ducimus qui
+				blanditiis praesentium voluptatum deleniti atque corrupti quos
+				dolores et quas molestias excepturi sint occaecati cupiditate non
+				provident.
+			</p>
+		</section>
+
+		<section id="projects">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+				ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+				aliquip ex ea commodo consequat.
+			</p>
+			<p>
+				Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit
+				anim id est laborum.
+			</p>
+			<p>
+				Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+				accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+				quae ab illo inventore veritatis et quasi architecto beatae vitae
+				dicta sunt explicabo.
+			</p>
+		</section>
+
+		<section id="contact">
+			<p>
+				Temporibus autem quibusdam et aut officiis debitis aut rerum
+				necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+				molestiae non recusandae.
+			</p>
+			<p>
+				Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis
+				doloribus asperiores repellat.
+			</p>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		position: relative;
+		z-index: 1;
+		max-width: 55%;
+		padding: 0 4rem 6rem 7rem;
+	}
+
+	/* Intro — vertically centered, full viewport */
+	.intro {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 20vh;
+	}
+
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 2rem;
+		min-height: 1.2em;
+	}
+
+	.cursor {
+		display: inline-block;
+		width: 0.6em;
+		height: 1.15em;
+		background: #fff;
+		vertical-align: text-bottom;
+		animation: blink 1s step-end infinite;
+	}
+
+	@keyframes blink {
+		50% { opacity: 0; }
+	}
+
+	p {
+		font-size: 1.125rem;
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+		opacity: 0.85;
+	}
+
+	#first-para {
+		min-height: 1.5em;
+	}
+
+	/* Sidebar */
+	#sidebar {
+		position: fixed;
+		left: 2rem;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	#sidebar a {
+		font-family: monospace;
+		font-size: 0.75rem;
+		color: #fff;
+		text-decoration: none;
+		opacity: 0.3;
+		transition: opacity 0.3s ease;
+		cursor: pointer;
+		letter-spacing: 0.05em;
+	}
+
+	#sidebar a:hover {
+		opacity: 0.7;
+	}
+
+	#sidebar a.active {
+		opacity: 1;
+	}
+
+	/* Sections — tall with large gaps between */
+	section {
+		min-height: 100vh;
+		padding-top: 12vh;
+		margin-bottom: 20vh;
+	}
+
+	section:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Section paragraphs hidden until revealed */
+	section p {
+		opacity: 0;
+		transform: translateY(12px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	section p.fade-in {
+		opacity: 0.85;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	const nameText = 'Keshav Sreekantham';
+	const firstParaText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+
+	const h1 = document.getElementById('name')!;
+	const firstPara = document.getElementById('first-para')!;
+
+	const cursor = document.createElement('span');
+	cursor.className = 'cursor';
+
+	const TYPING_SPEED = 90;
+
+	// Scroll to top on load so intro is visible after reload
+	window.scrollTo(0, 0);
+
+	// Zone order: intro is index 0, then sections 1-4
+	const introEl = document.getElementById('intro')!;
+	const sectionIds = ['about', 'experience', 'projects', 'contact'];
+	const sectionEls = sectionIds.map((id) => document.getElementById(id)!);
+	const zones: HTMLElement[] = [introEl, ...sectionEls];
+	const navLinks = document.querySelectorAll<HTMLAnchorElement>('#sidebar a');
+
+	const revealed = new Set<string>();
+	let typingDone = false;
+	let isAutoScrolling = false;
+	let currentZoneIndex = 0;
+	let lastScrollY = window.scrollY;
+
+	function dispatchGradientTransition(zoneIndex: number) {
+		window.dispatchEvent(
+			new CustomEvent('gradient-transition', {
+				detail: { zoneIndex },
+			})
+		);
+	}
+
+	function typeInto(el: HTMLElement, text: string, speed: number): Promise<void> {
+		return new Promise((resolve) => {
+			el.textContent = '';
+			el.appendChild(cursor);
+			let i = 0;
+			function next() {
+				if (i < text.length) {
+					el.insertBefore(document.createTextNode(text[i]), cursor);
+					i++;
+					setTimeout(next, speed);
+				} else {
+					resolve();
+				}
+			}
+			next();
+		});
+	}
+
+	function revealSection(sectionId: string) {
+		if (revealed.has(sectionId)) return;
+		revealed.add(sectionId);
+		const section = document.getElementById(sectionId);
+		if (!section) return;
+		section.querySelectorAll('p').forEach((p, i) => {
+			setTimeout(() => p.classList.add('fade-in'), i * 120);
+		});
+	}
+
+	function revealSectionInstant(sectionId: string) {
+		if (revealed.has(sectionId)) return;
+		revealed.add(sectionId);
+		const section = document.getElementById(sectionId);
+		if (!section) return;
+		section.querySelectorAll('p').forEach((p) => p.classList.add('fade-in'));
+	}
+
+	function smoothScrollTo(targetY: number, callback?: () => void) {
+		isAutoScrolling = true;
+		const startY = window.scrollY;
+		const diff = targetY - startY;
+		if (Math.abs(diff) < 1) {
+			isAutoScrolling = false;
+			callback?.();
+			return;
+		}
+		const duration = 700;
+		const startTime = performance.now();
+
+		function step(currentTime: number) {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			// Cubic ease-out for fast-then-decelerate feel
+			const ease = 1 - Math.pow(1 - progress, 3);
+			window.scrollTo(0, startY + diff * ease);
+			if (progress < 1) {
+				requestAnimationFrame(step);
+			} else {
+				// Short cooldown so lingering scroll events don't re-trigger
+				setTimeout(() => {
+					isAutoScrolling = false;
+					callback?.();
+				}, 100);
+			}
+		}
+
+		requestAnimationFrame(step);
+	}
+
+	function snapTo(zoneIndex: number) {
+		if (zoneIndex < 0 || zoneIndex >= zones.length) return;
+		if (isAutoScrolling) return;
+
+		const target = zones[zoneIndex];
+
+		// Reveal the section's paragraphs (stagger fade-in starts during scroll)
+		if (zoneIndex > 0) {
+			revealSection(sectionIds[zoneIndex - 1]);
+		}
+
+		dispatchGradientTransition(zoneIndex);
+
+		smoothScrollTo(target.offsetTop, () => {
+			currentZoneIndex = zoneIndex;
+		});
+	}
+
+	// Scroll handler — detect tipping point
+	window.addEventListener(
+		'scroll',
+		() => {
+			if (isAutoScrolling) return;
+			if (currentZoneIndex === 0 && !typingDone) return;
+
+			const scrollY = window.scrollY;
+			const scrollDir = scrollY > lastScrollY ? 'down' : 'up';
+			lastScrollY = scrollY;
+
+			const currentZone = zones[currentZoneIndex];
+			const rect = currentZone.getBoundingClientRect();
+			const viewportCenter = window.innerHeight * 0.5;
+
+			// Scrolling down: when bottom of current zone passes above viewport center
+			if (scrollDir === 'down' && currentZoneIndex < zones.length - 1) {
+				if (rect.bottom < viewportCenter) {
+					snapTo(currentZoneIndex + 1);
+				}
+			}
+
+			// Scrolling up: when top of current zone drops below viewport center
+			if (scrollDir === 'up' && currentZoneIndex > 0) {
+				if (rect.top > viewportCenter) {
+					snapTo(currentZoneIndex - 1);
+				}
+			}
+		},
+		{ passive: true }
+	);
+
+	// Sidebar nav click — instantly reveal intermediate sections, scroll to target
+	navLinks.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			const targetId = link.dataset.section!;
+			const targetIdx = sectionIds.indexOf(targetId);
+			const zoneIdx = targetIdx + 1; // zones[0] is intro, sections start at 1
+
+			// Instantly reveal all sections up to target
+			for (let i = 0; i < targetIdx; i++) {
+				revealSectionInstant(sectionIds[i]);
+			}
+			// Target section gets the stagger reveal
+			revealSection(sectionIds[targetIdx]);
+
+			dispatchGradientTransition(zoneIdx);
+
+			smoothScrollTo(zones[zoneIdx].offsetTop, () => {
+				currentZoneIndex = zoneIdx;
+			});
+		});
+	});
+
+	// IntersectionObserver to highlight active nav link
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					navLinks.forEach((link) => {
+						link.classList.toggle('active', link.dataset.section === id);
+					});
+				}
+			});
+		},
+		{ rootMargin: '-30% 0px -60% 0px' }
+	);
+
+	sectionEls.forEach((section) => observer.observe(section));
+
+	// Typing intro animation
+	async function run() {
+		await typeInto(h1, nameText, TYPING_SPEED);
+		await new Promise((r) => setTimeout(r, 400));
+		await typeInto(firstPara, firstParaText, 20);
+		cursor.remove();
+		typingDone = true;
+	}
+
+	setTimeout(run, 500);
+</script>
