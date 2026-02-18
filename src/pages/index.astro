@@ -40,23 +40,70 @@ import GradientBackground from '../components/GradientBackground';
 		</section>
 
 		<section id="experience">
-			<p>
-				Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-				consectetur, adipisci velit, sed quia non numquam eius modi tempora
-				incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-			</p>
-			<p>
-				Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-				suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-				autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-				nihil molestiae consequatur.
-			</p>
-			<p>
-				At vero eos et accusamus et iusto odio dignissimos ducimus qui
-				blanditiis praesentium voluptatum deleniti atque corrupti quos
-				dolores et quas molestias excepturi sint occaecati cupiditate non
-				provident.
-			</p>
+			<div class="timeline">
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-header">
+							<h3>Project Manager</h3>
+							<span class="timeline-date">Jan 2026 — Present</span>
+						</div>
+						<p class="timeline-company">Mead Johnson @ Data Mine Purdue</p>
+						<ul>
+							<li>Led a team in the development of a state-of-the-art research database for the Mead Johnson Reckitt R&D division to use for novel discoveries.</li>
+							<li>Consistently upheld Agile methodology by facilitating iterative planning, weekly stand-ups, sprint reviews, and continuous improvement through retrospectives.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-header">
+							<h3>Measurement Software Engineer</h3>
+							<span class="timeline-date">Sep 2025 — Present</span>
+						</div>
+						<p class="timeline-company">Continuity Pharma</p>
+						<ul>
+							<li>Developed a full-stack real-time monitoring system using React.js and Node.js (Express) to continuously track metrics with sub-second latency, enabling a 90% reduction in manual equipment monitoring.</li>
+							<li>Engineered data pipeline to process and store over 2 million data points daily from on-site manufacturing equipment using MongoDB.</li>
+							<li>Implemented a real-time alerting system and robust data traceability to generate batch records compliant with FDA regulations.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-header">
+							<h3>Software Engineering Intern</h3>
+							<span class="timeline-date">Jun 2025 — Aug 2025</span>
+						</div>
+						<p class="timeline-company">Spring Education Group — Schools of Paragon</p>
+						<ul>
+							<li>Built an educational analytics dashboard utilizing JavaScript, Next.js (React) and FastAPI enabling 65% faster longitudinal assessment of performance on exam questions.</li>
+							<li>Deployed on Vercel while managing back end via Python REST API, storing 2500+ exam questions in a PostgreSQL database, deployed on Render.</li>
+							<li>Currently utilized by Paragon Prep to inform curriculum changes across 2 departments, 5+ classes and 200+ students.</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="timeline-item">
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<div class="timeline-header">
+							<h3>Software Developer</h3>
+							<span class="timeline-date">Jan 2025 — Present</span>
+						</div>
+						<p class="timeline-company">KiharaLab</p>
+						<ul>
+							<li>Integrated modern sequence alignment tools with a RESTful FastAPI — Next.js web server, enabling 4x faster sequence alignment queries.</li>
+							<li>Refactored sequence function annotation tool code base, reducing code size by 33%.</li>
+							<li>Utilized in preclinical R&D drug design for rapid prototyping.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<section id="projects">
@@ -80,19 +127,20 @@ import GradientBackground from '../components/GradientBackground';
 			</p>
 		</section>
 
-		<section id="contact">
-			<p>
-				Temporibus autem quibusdam et aut officiis debitis aut rerum
-				necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-				molestiae non recusandae.
-			</p>
-			<p>
-				Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-				reiciendis voluptatibus maiores alias consequatur aut perferendis
-				doloribus asperiores repellat.
-			</p>
-		</section>
 	</main>
+
+	<section id="contact">
+		<p>
+			Temporibus autem quibusdam et aut officiis debitis aut rerum
+			necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+			molestiae non recusandae.
+		</p>
+		<p>
+			Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+			reiciendis voluptatibus maiores alias consequatur aut perferendis
+			doloribus asperiores repellat.
+		</p>
+	</section>
 </Layout>
 
 <style>
@@ -184,16 +232,124 @@ import GradientBackground from '../components/GradientBackground';
 		margin-bottom: 0;
 	}
 
+	#contact {
+		position: relative;
+		z-index: 1;
+		max-width: 35%;
+		margin-left: auto;
+		padding-right: 7rem;
+		text-align: right;
+	}
+
 	/* Section paragraphs hidden until revealed */
-	section p {
+	section > p {
 		opacity: 0;
 		transform: translateY(12px);
 		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 	}
 
-	section p.fade-in {
+	section > p.fade-in {
 		opacity: 0.85;
 		transform: translateY(0);
+	}
+
+	/* Timeline */
+	.timeline {
+		position: relative;
+		padding-left: 2rem;
+	}
+
+	.timeline::before {
+		content: '';
+		position: absolute;
+		left: 6px;
+		top: 0;
+		bottom: 0;
+		width: 1px;
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.timeline-item {
+		position: relative;
+		padding-bottom: 2.5rem;
+		opacity: 0;
+		transform: translateY(12px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	}
+
+	.timeline-item:last-child {
+		padding-bottom: 0;
+	}
+
+	.timeline-item.fade-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.timeline-dot {
+		position: absolute;
+		left: -2rem;
+		top: 0.35rem;
+		width: 13px;
+		height: 13px;
+		border-radius: 50%;
+		border: 2px solid rgba(255, 255, 255, 0.6);
+		background: transparent;
+		transition: box-shadow 0.3s ease, border-color 0.3s ease;
+		z-index: 1;
+	}
+
+	.timeline-item:hover .timeline-dot {
+		border-color: #fff;
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 255, 255, 0.2);
+	}
+
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.timeline-header h3 {
+		font-size: 1.05rem;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.timeline-date {
+		font-size: 0.8rem;
+		opacity: 0.5;
+		white-space: nowrap;
+	}
+
+	.timeline-company {
+		font-size: 0.9rem;
+		opacity: 0.6;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-content ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.timeline-content li {
+		font-size: 0.95rem;
+		line-height: 1.6;
+		opacity: 0.75;
+		padding-left: 1rem;
+		position: relative;
+		margin-bottom: 0.35rem;
+	}
+
+	.timeline-content li::before {
+		content: '—';
+		position: absolute;
+		left: 0;
+		opacity: 0.4;
 	}
 </style>
 
@@ -207,7 +363,7 @@ import GradientBackground from '../components/GradientBackground';
 	const cursor = document.createElement('span');
 	cursor.className = 'cursor';
 
-	const TYPING_SPEED = 90;
+	const TYPING_SPEED = 50;
 
 	// Scroll to top on load so intro is visible after reload
 	window.scrollTo(0, 0);
@@ -256,8 +412,9 @@ import GradientBackground from '../components/GradientBackground';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		section.querySelectorAll('p').forEach((p, i) => {
-			setTimeout(() => p.classList.add('fade-in'), i * 120);
+		const items = section.querySelectorAll(':scope > p, .timeline-item');
+		items.forEach((el, i) => {
+			setTimeout(() => el.classList.add('fade-in'), i * 120);
 		});
 	}
 
@@ -266,7 +423,8 @@ import GradientBackground from '../components/GradientBackground';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		section.querySelectorAll('p').forEach((p) => p.classList.add('fade-in'));
+		const items = section.querySelectorAll(':scope > p, .timeline-item');
+		items.forEach((el) => el.classList.add('fade-in'));
 	}
 
 	function smoothScrollTo(targetY: number, callback?: () => void) {
@@ -395,7 +553,7 @@ import GradientBackground from '../components/GradientBackground';
 	async function run() {
 		await typeInto(h1, nameText, TYPING_SPEED);
 		await new Promise((r) => setTimeout(r, 400));
-		await typeInto(firstPara, firstParaText, 20);
+		await typeInto(firstPara, firstParaText, 12);
 		cursor.remove();
 		typingDone = true;
 	}

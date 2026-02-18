@@ -10,40 +10,42 @@ interface ZoneConfig {
   rotationY: number;
   rotationZ: number;
   positionX: number;
+  positionY: number;
   fov: number;
+  brightness: number;
   pixelDensity: number;
   uDensity: number;
   uSpeed: number;
   uStrength: number;
-  type: "sphere" | "waterPlane";
+  type: "sphere" | "waterPlane" | "plane";
 }
 
 const ZONE_CONFIGS: ZoneConfig[] = [
   // Zone 0 - Intro: large, off-screen right
   { cameraZoom: 5.0, cAzimuthAngle: 160, cPolarAngle: 90, cDistance: 2.5,
-    rotationX: 0, rotationY: 0, rotationZ: 0, positionX: -2.9,
-    fov: 45, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
+    rotationX: 0, rotationY: 0, rotationZ: 0, positionX: -2.9, positionY: 0,
+    fov: 45, brightness: 1.2, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
     type: "sphere" },
   // Zone 1 - About: top right, arc inward
-  { cameraZoom: 2.3, cAzimuthAngle: 180, cPolarAngle: 70, cDistance: 3.6,
-    rotationX: 45, rotationY: 10, rotationZ: 50, positionX: -2.6,
-    fov: 45, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
+  { cameraZoom: 2.3, cAzimuthAngle: 160, cPolarAngle: 10, cDistance: 3.6,
+    rotationX: 45, rotationY: 10, rotationZ: 50, positionX: -3, positionY: 2,
+    fov: 45, brightness: 1.2, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
     type: "sphere" },
   // Zone 2 - Experience: center right, popped out toward edge
   { cameraZoom: 2.3, cAzimuthAngle: 180, cPolarAngle: 90, cDistance: 3.6,
-    rotationX: 90, rotationY: 30, rotationZ: 100, positionX: -3.4,
-    fov: 45, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
+    rotationX: 90, rotationY: 30, rotationZ: 100, positionX: -4.0, positionY: 0,
+    fov: 45, brightness: 1.2, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
     type: "sphere" },
   // Zone 3 - Projects: bottom right, arc inward
-  { cameraZoom: 2.3, cAzimuthAngle: 180, cPolarAngle: 110, cDistance: 3.6,
-    rotationX: 5, rotationY: 50, rotationZ: 30, positionX: -2.6,
-    fov: 45, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
+  { cameraZoom: 2.3, cAzimuthAngle: 180, cPolarAngle: 140, cDistance: 3.6,
+    rotationX: 5, rotationY: 50, rotationZ: 30, positionX: -2.6, positionY: -3,
+    fov: 45, brightness: 1.2, pixelDensity: 1.3, uDensity: 3, uSpeed: 0.1, uStrength: 3.8,
     type: "sphere" },
-  // Zone 4 - Contact: water plane
-  { cameraZoom: 1, cAzimuthAngle: 180, cPolarAngle: 90, cDistance: 3.6,
-    rotationX: 0, rotationY: 10, rotationZ: 50, positionX: -1.4,
-    fov: 50, pixelDensity: 1, uDensity: 1.3, uSpeed: 0.4, uStrength: 4,
-    type: "waterPlane" },
+  // Zone 4 - Contact: zoomed-in sphere, centered
+  { cameraZoom: 6.4, cAzimuthAngle: 180, cPolarAngle: 90, cDistance: 3.6,
+    rotationX: 0, rotationY: 10, rotationZ: 50, positionX: 0, positionY: 0,
+    fov: 45, brightness: 1.2, pixelDensity: 1, uDensity: 3, uSpeed: 0.1, uStrength: 4,
+    type: "sphere" },
 ];
 
 type NumericProps = Omit<ZoneConfig, "type">;
@@ -76,8 +78,8 @@ export default function GradientBackground() {
 
     const numericKeys: (keyof NumericProps)[] = [
       "cameraZoom", "cAzimuthAngle", "cPolarAngle", "cDistance",
-      "rotationX", "rotationY", "rotationZ", "positionX",
-      "fov", "pixelDensity", "uDensity", "uSpeed", "uStrength",
+      "rotationX", "rotationY", "rotationZ", "positionX", "positionY",
+      "fov", "brightness", "pixelDensity", "uDensity", "uSpeed", "uStrength",
     ];
 
     function step(now: number) {
@@ -135,7 +137,7 @@ export default function GradientBackground() {
         axesHelper="off"
         bgColor1="#000000"
         bgColor2="#000000"
-        brightness={1.2}
+        brightness={gradientProps.brightness}
         cAzimuthAngle={gradientProps.cAzimuthAngle}
         cDistance={gradientProps.cDistance}
         cPolarAngle={gradientProps.cPolarAngle}
@@ -154,7 +156,7 @@ export default function GradientBackground() {
         lightType="3d"
         pixelDensity={gradientProps.pixelDensity}
         positionX={gradientProps.positionX}
-        positionY={0}
+        positionY={gradientProps.positionY}
         positionZ={0}
         range="disabled"
         rangeEnd={40}
