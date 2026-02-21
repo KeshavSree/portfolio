@@ -1,0 +1,100 @@
+---
+interface Props {
+	title: string;
+	date: string;
+	company: string;
+	description: string;
+	icon?: string;
+}
+
+const { title, date, company, description, icon } = Astro.props;
+---
+
+<div class="timeline-item">
+	<div class="timeline-dot">
+		{icon && <img src={icon} alt={company} />}
+	</div>
+	<div class="timeline-content">
+		<div class="timeline-header">
+			<h3>{title}</h3>
+			<span class="timeline-date">{date}</span>
+		</div>
+		<p class="timeline-company">{company}</p>
+		<p class="timeline-description">{description}</p>
+	</div>
+</div>
+
+<style>
+	.timeline-item {
+		position: relative;
+		padding-bottom: 2.5rem;
+		transform: translateY(100vh);
+		transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.timeline-item:last-child {
+		padding-bottom: 0;
+	}
+
+	.timeline-item.fade-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.timeline-dot {
+		position: absolute;
+		left: -4.75rem;
+		top: -0.25rem;
+		width: 3.25rem;
+		height: 3.25rem;
+		border: 1.5px solid rgba(255, 255, 255, 0.5);
+		background: transparent;
+		z-index: 1;
+		transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.timeline-item:hover .timeline-dot {
+		border-color: #fff;
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 255, 255, 0.2);
+	}
+
+	.timeline-dot img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.timeline-header h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.timeline-date {
+		font-size: 0.95rem;
+		opacity: 0.5;
+		white-space: nowrap;
+	}
+
+	.timeline-company {
+		font-size: 1.05rem;
+		opacity: 0.6;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-description {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		opacity: 0.75;
+		margin: 0;
+	}
+</style>
