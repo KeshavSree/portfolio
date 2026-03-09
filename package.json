@@ -14,7 +14,7 @@
     "@shadergradient/react": "^2.4.20",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.17.1",
+    "astro": "^5.18.0",
     "camera-controls": "^3.1.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

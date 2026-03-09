@@ -21,6 +21,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 		</div>
 
 		<section id="experience">
+			<h2 class="section-title">Experience</h2>
 			<div class="timeline">
 				<TimelineItem
 					title="Project Manager"
@@ -50,15 +51,43 @@ import TimelineItem from '../components/TimelineItem.astro';
 		</section>
 
 		<section id="projects">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-				ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-				aliquip ex ea commodo consequat.
-			</p>
+			<h2 class="section-title">Projects</h2>
+			<div class="project-item">
+				<h3>Redub</h3>
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</li>
+					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+					<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+				</ul>
+			</div>
+			<div class="project-item">
+				<h3>Ember</h3>
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</li>
+					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+					<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+				</ul>
+			</div>
+			<div class="project-item">
+				<h3>KiharaLab</h3>
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</li>
+					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+					<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+				</ul>
+			</div>
+			<div class="project-item">
+				<h3>Spotify Playlist Creator</h3>
+				<ul>
+					<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</li>
+					<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+					<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</li>
+				</ul>
+			</div>
 		</section>
 
 		<section id="education">
+			<h2 class="section-title">Education & Skills</h2>
 			<div class="edu-block">
 				<div class="edu-header">
 					<h3>Purdue University</h3>
@@ -75,20 +104,21 @@ import TimelineItem from '../components/TimelineItem.astro';
 			</div>
 		</section>
 
-	</main>
+		<section id="contact">
+			<h2 class="section-title">Contact</h2>
+			<p>
+				Temporibus autem quibusdam et aut officiis debitis aut rerum
+				necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+				molestiae non recusandae.
+			</p>
+			<p>
+				Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+				reiciendis voluptatibus maiores alias consequatur aut perferendis
+				doloribus asperiores repellat.
+			</p>
+		</section>
 
-	<section id="contact">
-		<p>
-			Temporibus autem quibusdam et aut officiis debitis aut rerum
-			necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-			molestiae non recusandae.
-		</p>
-		<p>
-			Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-			reiciendis voluptatibus maiores alias consequatur aut perferendis
-			doloribus asperiores repellat.
-		</p>
-	</section>
+	</main>
 </Layout>
 
 <style>
@@ -105,7 +135,6 @@ import TimelineItem from '../components/TimelineItem.astro';
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		margin-bottom: 8rem;
 	}
 
 	h1 {
@@ -169,33 +198,37 @@ import TimelineItem from '../components/TimelineItem.astro';
 		opacity: 1;
 	}
 
-	/* Sections — compact with moderate spacing */
+	/* Section title */
+	.section-title {
+		font-size: 2rem;
+		font-weight: 600;
+		margin: 0 0 1.5rem;
+		opacity: 0.9;
+	}
+
+	/* Sections — minimal spacing */
 	section {
-		padding-top: 6rem;
-		margin-bottom: 6rem;
+		padding-top: 2.5rem;
+		margin-bottom: 2.5rem;
 	}
 
 	section:last-child {
 		margin-bottom: 0;
 	}
 
-	#contact {
-		position: relative;
-		z-index: 1;
-		max-width: 35%;
-		margin-left: auto;
-		padding-right: 7rem;
-		text-align: right;
-	}
-
-	/* Section paragraphs hidden until revealed */
-	section > p {
+	/* Section paragraphs + titles hidden until revealed */
+	section > p, .section-title {
 		transform: translateY(100vh);
 		transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 
 	section > p.fade-in {
 		opacity: 0.85;
+		transform: translateY(0);
+	}
+
+	.section-title.fade-in {
+		opacity: 0.9;
 		transform: translateY(0);
 	}
 
@@ -264,6 +297,36 @@ import TimelineItem from '../components/TimelineItem.astro';
 		opacity: 0.8;
 	}
 
+	/* Projects */
+	.project-item {
+		padding-bottom: 2.5rem;
+		transform: translateY(100vh);
+		transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.project-item.fade-in {
+		transform: translateY(0);
+	}
+
+	.project-item h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin: 0 0 0.75rem;
+	}
+
+	.project-item ul {
+		margin: 0;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	.project-item li {
+		font-size: 1rem;
+		line-height: 1.7;
+		opacity: 0.75;
+		margin-bottom: 0.25rem;
+	}
+
 	/* Timeline */
 	.timeline {
 		position: relative;
@@ -298,13 +361,12 @@ import TimelineItem from '../components/TimelineItem.astro';
 	window.scrollTo(0, 0);
 
 	// Zone order: intro is index 0, then sections 1-4
-	const introEl = document.getElementById('intro')!;
 	const sectionIds = ['experience', 'projects', 'education', 'contact'];
 	const sectionEls = sectionIds.map((id) => document.getElementById(id)!);
-	const zones: HTMLElement[] = [introEl, ...sectionEls];
 	const navLinks = document.querySelectorAll<HTMLAnchorElement>('#sidebar a');
 
 	const revealed = new Set<string>();
+	const pendingItems = new Set<HTMLElement>();
 
 	function dispatchGradientTransition(zoneIndex: number) {
 		window.dispatchEvent(
@@ -337,8 +399,9 @@ import TimelineItem from '../components/TimelineItem.astro';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		const items = section.querySelectorAll(':scope > p, .timeline-item, .edu-block, .skills-block');
+		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .project-item, .edu-block, .skills-block');
 		items.forEach((el, i) => {
+			pendingItems.delete(el);
 			setTimeout(() => el.classList.add('fade-in'), i * 120);
 		});
 	}
@@ -348,8 +411,11 @@ import TimelineItem from '../components/TimelineItem.astro';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		const items = section.querySelectorAll(':scope > p, .timeline-item, .edu-block, .skills-block');
-		items.forEach((el) => el.classList.add('fade-in'));
+		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .project-item, .edu-block, .skills-block');
+		items.forEach((el) => {
+			pendingItems.delete(el);
+			el.classList.add('fade-in');
+		});
 	}
 
 	// Sidebar nav click — instantly reveal intermediate sections, scroll to target
@@ -375,31 +441,77 @@ import TimelineItem from '../components/TimelineItem.astro';
 		});
 	});
 
-	// Single observer — gradient transitions, nav highlighting, and section reveals
-	// all fire at the same moment (when section enters top ~40% of viewport)
-	const activeObserver = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const id = entry.target.id;
-					// Highlight nav
-					navLinks.forEach((link) => {
-						link.classList.toggle('active', link.dataset.section === id);
-					});
-					// Dispatch gradient transition
-					const zoneIndex = id === 'intro'
-						? 0
-						: sectionIds.indexOf(id) + 1;
-					dispatchGradientTransition(zoneIndex);
-					// Reveal section content in sync with gradient
-					revealSection(id);
-				}
+
+	// Group animatable items by section, in DOM order (section-title is first)
+	const sectionItems = new Map<string, HTMLElement[]>();
+	sectionEls.forEach((section) => {
+		const items = Array.from(section.querySelectorAll<HTMLElement>('.section-title, .timeline-item, .project-item, .edu-block, .skills-block, :scope > p'));
+		sectionItems.set(section.id, items);
+		items.forEach((item) => pendingItems.add(item));
+	});
+
+	// Walk offsetParent chain to get layout top (unaffected by CSS transforms)
+	function getLayoutOffsetTop(el: HTMLElement): number {
+		let top = 0;
+		let cur: HTMLElement | null = el;
+		while (cur) {
+			top += cur.offsetTop;
+			cur = cur.offsetParent as HTMLElement | null;
+		}
+		return top;
+	}
+
+	// Check only the first unrevealed item of each section against the 2/3 rule.
+	// When it triggers, cascade all remaining items in that section with stagger.
+	function checkItemVisibility() {
+		const scrollTop = window.scrollY;
+		const viewBottom = scrollTop + window.innerHeight * (1 / 2);
+		for (const [, items] of sectionItems) {
+			const firstPending = items.find((item) => pendingItems.has(item));
+			if (!firstPending) continue;
+			const top = getLayoutOffsetTop(firstPending);
+			const bottom = top + firstPending.offsetHeight;
+			if (top >= scrollTop && bottom <= viewBottom) {
+				items.filter((item) => pendingItems.has(item)).forEach((item, i) => {
+					pendingItems.delete(item);
+					setTimeout(() => item.classList.add('fade-in'), i * 120);
+				});
+			}
+		}
+	}
+
+	// Section title elements for accurate trigger points
+	const sectionTitles = sectionEls.map((s) => s.querySelector<HTMLElement>('.section-title'));
+
+	// Zone activates when the section title's bottom edge crosses the same 1/2 threshold
+	// used by checkItemVisibility — keeps blob and cascade in sync bidirectionally
+	function getActiveZone(): number {
+		const trigger = window.scrollY + window.innerHeight * (1 / 2);
+		let zone = 0;
+		for (let i = 0; i < sectionEls.length; i++) {
+			const titleEl = sectionTitles[i] ?? sectionEls[i];
+			const bottom = getLayoutOffsetTop(titleEl) + titleEl.offsetHeight;
+			if (bottom <= trigger) zone = i + 1;
+		}
+		return zone;
+	}
+
+	let currentZone = -1;
+	function onScroll() {
+		checkItemVisibility();
+		const zone = getActiveZone();
+		if (zone !== currentZone) {
+			currentZone = zone;
+			dispatchGradientTransition(zone);
+			const activeId = zone === 0 ? null : sectionIds[zone - 1];
+			navLinks.forEach((link) => {
+				link.classList.toggle('active', link.dataset.section === activeId);
 			});
-		},
-		{ rootMargin: '-30% 0px -60% 0px' }
-	);
-	// Observe all zones including intro
-	zones.forEach((zone) => activeObserver.observe(zone));
+		}
+	}
+
+	window.addEventListener('scroll', onScroll, { passive: true });
+	onScroll(); // initialize on load
 
 	// Typing intro animation
 	async function run() {
