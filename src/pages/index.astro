@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import GradientBackground from '../components/GradientBackground';
 import TimelineItem from '../components/TimelineItem.astro';
+import ProjectOverlay from '../components/ProjectOverlay.astro';
 ---
 
 <Layout>
@@ -10,7 +11,6 @@ import TimelineItem from '../components/TimelineItem.astro';
 	<nav id="sidebar">
 		<a href="#experience" data-section="experience">Experience</a>
 		<a href="#projects" data-section="projects">Projects</a>
-		<a href="#education" data-section="education">Education</a>
 		<a href="#contact" data-section="contact">Contact</a>
 	</nav>
 
@@ -18,6 +18,17 @@ import TimelineItem from '../components/TimelineItem.astro';
 		<div class="intro" id="intro">
 			<h1 id="name"></h1>
 			<p id="first-para"></p>
+			<div class="intro-links">
+				<a class="intro-icon-btn" href="https://linkedin.com/in/ksreekan" target="_blank" rel="noopener" aria-label="LinkedIn">
+					<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.45 20.45h-3.554v-5.569c0-1.328-.024-3.037-1.852-3.037-1.854 0-2.137 1.447-2.137 2.941v5.665H9.352V9h3.414v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.284zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+				</a>
+				<a class="intro-icon-btn" href="https://github.com/KeshavSree" target="_blank" rel="noopener" aria-label="GitHub">
+					<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+				</a>
+				<button class="intro-icon-btn" aria-label="Resume" onclick="window.open('/resume.pdf', '_blank')">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+				</button>
+			</div>
 		</div>
 
 		<section id="experience">
@@ -74,8 +85,13 @@ import TimelineItem from '../components/TimelineItem.astro';
 							<stop offset="75%" stop-color="#fff" stop-opacity="0.8"/>
 							<stop offset="100%" stop-color="#fff" stop-opacity="1"/>
 						</linearGradient>
+						<linearGradient id="wave-path-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="0%" stop-color="#fff" stop-opacity="0.2"/>
+							<stop offset="88%" stop-color="#fff" stop-opacity="0.2"/>
+							<stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+						</linearGradient>
 					</defs>
-					<path class="wave-path" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+					<path class="wave-path" fill="none" stroke="url(#wave-path-grad)" stroke-width="2" />
 					<path class="wave-hover" fill="none" stroke="url(#wave-hover-grad)" stroke-width="2" />
 					<path class="wave-tail" fill="none" stroke="url(#wave-tail-grad)" stroke-width="2" />
 					<path class="wave-path-glow" fill="none" stroke="#fff" stroke-width="2.5" filter="url(#wave-glow-filter)" />
@@ -83,28 +99,28 @@ import TimelineItem from '../components/TimelineItem.astro';
 				</svg>
 				<div class="wave-project wave-right project-item">
 					<div class="wave-card">
-						<div class="wave-card-preview"></div>
+						<div class="wave-card-preview"><img src="/projects/redub/redub1.jpg" alt="Redub preview"></div>
 						<h3>Redub</h3>
 						<p>AI-powered video dubbing and translation platform</p>
 					</div>
 				</div>
 				<div class="wave-project wave-left project-item">
 					<div class="wave-card">
-						<div class="wave-card-preview"></div>
+						<div class="wave-card-preview"><img src="/projects/ember/ember1.png" alt="Ember preview"></div>
 						<h3>Ember</h3>
-						<p>Social event discovery app for local communities</p>
+						<p>Decentralized Disaster Response</p>
 					</div>
 				</div>
 				<div class="wave-project wave-right project-item">
 					<div class="wave-card">
-						<div class="wave-card-preview"></div>
-						<h3>KiharaLab</h3>
-						<p>Bioinformatics web server for protein structure analysis</p>
+						<div class="wave-card-preview"><img src="/projects/kiharalab/Kihara1.png" alt="KiharaLab preview"></div>
+						<h3>KiharaLab Protein Function Prediction</h3>
+						<p>Bioinformatics web server for protein function prediction</p>
 					</div>
 				</div>
 				<div class="wave-project wave-left project-item">
 					<div class="wave-card">
-						<div class="wave-card-preview"></div>
+						<div class="wave-card-preview"><img src="/projects/spotify/spotify1.jpg" alt="Spotify Playlist Creator preview"></div>
 						<h3>Spotify Playlist Creator</h3>
 						<p>Automated playlist generation from listening habits</p>
 					</div>
@@ -112,39 +128,18 @@ import TimelineItem from '../components/TimelineItem.astro';
 			</div>
 		</section>
 
-		<section id="education">
-			<h2 class="section-title">Education & Skills</h2>
-			<div class="edu-block">
-				<div class="edu-header">
-					<h3>Purdue University</h3>
-					<span class="edu-date">Expected Dec 2027</span>
-				</div>
-				<p class="edu-degree">B.S. Data Science (Computer Science) — GPA: 3.71</p>
-				<p class="edu-courses">Data Structures & Algorithms, Object-Oriented Programming, Foundations of Computer Science, Introduction to Machine Learning, Numerical Methods</p>
-			</div>
-			<div class="skills-block">
-				<div class="skill-row"><span class="skill-label">Languages</span><span class="skill-value">Python, Java, JavaScript, HTML, Bash, MATLAB, R, C++, Swift, SQL</span></div>
-				<div class="skill-row"><span class="skill-label">Frameworks</span><span class="skill-value">React, Next.js, Node.js, FastAPI, Django, Flask, Tailwind CSS</span></div>
-				<div class="skill-row"><span class="skill-label">Libraries</span><span class="skill-value">Pandas, Numpy, Scikit-learn, Tensorflow, Pytorch, Matplotlib, Seaborn</span></div>
-				<div class="skill-row"><span class="skill-label">Tools</span><span class="skill-value">GCP, MySQL, PostgreSQL, MongoDB, Docker, Kubernetes, Git, CI/CD, Vercel, Linux</span></div>
-			</div>
-		</section>
 
 		<section id="contact">
 			<h2 class="section-title">Contact</h2>
-			<p>
-				Temporibus autem quibusdam et aut officiis debitis aut rerum
-				necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-				molestiae non recusandae.
-			</p>
-			<p>
-				Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-				reiciendis voluptatibus maiores alias consequatur aut perferendis
-				doloribus asperiores repellat.
-			</p>
+			<a class="contact-email-link" href="mailto:keshav.sreekantham@gmail.com">
+				<span class="contact-default">Get in Touch!</span>
+				<span class="contact-hover">keshav.sreekantham@gmail.com</span>
+			</a>
 		</section>
 
 	</main>
+
+	<ProjectOverlay />
 </Layout>
 
 <style>
@@ -258,69 +253,90 @@ import TimelineItem from '../components/TimelineItem.astro';
 		transform: translateY(0);
 	}
 
-	/* Education & Skills */
-	.edu-block, .skills-block {
-		transform: translateY(100vh);
-		transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	/* Contact section — everything fades in, nothing slides */
+	#contact .section-title {
+		transform: none;
+		opacity: 0;
+		transition: opacity 0.8s ease;
 	}
 
-	.edu-block.fade-in, .skills-block.fade-in {
+	#contact .section-title.fade-in {
+		opacity: 0.9;
+		transform: none;
+	}
+
+
+
+	/* Intro icon buttons */
+	.intro-links {
+		display: flex;
+		gap: 0.6rem;
+		margin-top: 1.25rem;
+	}
+
+	.intro-icon-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		border-radius: 50%;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: none;
+		color: rgba(255, 255, 255, 0.5);
+		cursor: pointer;
+		text-decoration: none;
+		transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.intro-icon-btn:hover {
+		color: #fff;
+		border-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.15), 0 0 16px 4px rgba(255, 255, 255, 0.07);
+	}
+
+	/* Contact email link */
+	.contact-email-link {
+		display: inline-block;
+		position: relative;
+		font-size: 1.125rem;
+		text-decoration: none;
+		color: rgba(255, 255, 255, 0.7);
+		opacity: 0;
+		transition: opacity 0.8s ease, color 0.25s ease;
+	}
+
+	.contact-email-link.fade-in {
+		opacity: 1;
+	}
+
+	.contact-email-link:hover {
+		color: #fff;
+	}
+
+	.contact-default,
+	.contact-hover {
+		display: block;
+		transition: opacity 0.2s ease, transform 0.2s ease;
+	}
+
+	.contact-hover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transform: translateY(4px);
+		white-space: nowrap;
+	}
+
+	.contact-email-link:hover .contact-default {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+
+	.contact-email-link:hover .contact-hover {
 		opacity: 1;
 		transform: translateY(0);
-	}
-
-	.edu-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 0.25rem;
-	}
-
-	.edu-header h3 {
-		font-size: 1.2rem;
-		font-weight: 600;
-		margin: 0;
-	}
-
-	.edu-date {
-		font-size: 0.95rem;
-		opacity: 0.5;
-		white-space: nowrap;
-	}
-
-	.edu-degree {
-		font-size: 1.05rem;
-		opacity: 0.7;
-		margin-bottom: 0.5rem;
-	}
-
-	.edu-courses {
-		font-size: 0.95rem;
-		opacity: 0.5;
-		margin-bottom: 0;
-	}
-
-	.skills-block {
-		margin-top: 2.5rem;
-	}
-
-	.skill-row {
-		display: flex;
-		gap: 1.5rem;
-		margin-bottom: 0.5rem;
-		font-size: 1rem;
-		line-height: 1.6;
-	}
-
-	.skill-label {
-		opacity: 0.5;
-		white-space: nowrap;
-		min-width: 6rem;
-	}
-
-	.skill-value {
-		opacity: 0.8;
 	}
 
 	/* Wave Layout for Projects */
@@ -332,8 +348,6 @@ import TimelineItem from '../components/TimelineItem.astro';
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
 		pointer-events: none;
 		overflow: visible;
 	}
@@ -341,11 +355,14 @@ import TimelineItem from '../components/TimelineItem.astro';
 	.wave-project {
 		position: relative;
 		z-index: 2;
-		max-width: 55%;
-		padding: 1rem 0;
-		margin-bottom: 2rem;
+		max-width: 42%;
+		margin-bottom: -5The the rem;
 		transform: translateY(100vh);
 		transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.wave-project:first-child {
+		margin-top: 2.5rem;
 	}
 
 	.wave-project:last-child {
@@ -367,10 +384,16 @@ import TimelineItem from '../components/TimelineItem.astro';
 
 	/* Wave card (project box) */
 	.wave-card {
+		aspect-ratio: 16 / 9;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		position: relative;
 		padding: 0.75rem 1rem;
 		border-radius: 0.5rem;
 		border: 1px solid transparent;
 		transition: background 0.3s ease, border-color 0.3s ease;
+		cursor: pointer;
 	}
 
 	.wave-project:hover .wave-card {
@@ -379,8 +402,9 @@ import TimelineItem from '../components/TimelineItem.astro';
 	}
 
 	.wave-card-preview {
-		width: 100%;
-		height: 140px;
+		flex: 1;
+		height: auto;
+		min-height: 0;
 		border-radius: 0.375rem;
 		background: rgba(255, 255, 255, 0.03);
 		border: 1px solid rgba(255, 255, 255, 0.08);
@@ -485,7 +509,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 
 <script>
 	const nameText = 'Keshav Sreekantham';
-	const firstParaText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+	const firstParaText = 'Sophomore in Data Science (Computer Science) at Purdue University.';
 
 	const h1 = document.getElementById('name')!;
 	const firstPara = document.getElementById('first-para')!;
@@ -500,7 +524,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 	window.scrollTo(0, 0);
 
 	// Zone order: intro is index 0, then sections 1-4
-	const sectionIds = ['experience', 'projects', 'education', 'contact'];
+	const sectionIds = ['experience', 'projects', 'contact'];
 	const sectionEls = sectionIds.map((id) => document.getElementById(id)!);
 	const navLinks = document.querySelectorAll<HTMLAnchorElement>('#sidebar a');
 
@@ -538,7 +562,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .wave-project, .edu-block, .skills-block');
+		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .wave-project, .contact-email-link');
 		items.forEach((el, i) => {
 			pendingItems.delete(el);
 			setTimeout(() => el.classList.add('fade-in'), i * 120);
@@ -557,7 +581,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 		revealed.add(sectionId);
 		const section = document.getElementById(sectionId);
 		if (!section) return;
-		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .wave-project, .edu-block, .skills-block');
+		const items = section.querySelectorAll<HTMLElement>(':scope > p, .timeline-item, .wave-project, .contact-email-link');
 		items.forEach((el) => {
 			pendingItems.delete(el);
 			el.classList.add('fade-in');
@@ -598,7 +622,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 	// Group animatable items by section, in DOM order (section-title is first)
 	const sectionItems = new Map<string, HTMLElement[]>();
 	sectionEls.forEach((section) => {
-		const items = Array.from(section.querySelectorAll<HTMLElement>('.section-title, .timeline-item, .wave-project, .edu-block, .skills-block, :scope > p'));
+		const items = Array.from(section.querySelectorAll<HTMLElement>('.section-title, .timeline-item, .wave-project, .contact-email-link, :scope > p'));
 		sectionItems.set(section.id, items);
 		items.forEach((item) => pendingItems.add(item));
 	});
@@ -616,27 +640,32 @@ import TimelineItem from '../components/TimelineItem.astro';
 
 	// Check only the first unrevealed item of each section against the 2/3 rule.
 	// When it triggers, cascade all remaining items in that section with stagger.
+	function revealSectionItems(sectionId: string, items: HTMLElement[]) {
+		items.filter((item) => pendingItems.has(item)).forEach((item, i) => {
+			pendingItems.delete(item);
+			setTimeout(() => item.classList.add('fade-in'), i * 120);
+		});
+		const section = document.getElementById(sectionId);
+		const timeline = section?.querySelector('.timeline');
+		if (timeline) {
+			setTimeout(() => timeline.classList.add('line-growing'), 120);
+		}
+		if (section?.querySelector('.wave-layout')) {
+			setTimeout(() => startWaveAnimation(), 120);
+		}
+	}
+
 	function checkItemVisibility() {
 		const scrollTop = window.scrollY;
 		const viewBottom = scrollTop + window.innerHeight * (1 / 2);
+		const atPageBottom = scrollTop + window.innerHeight >= document.documentElement.scrollHeight - 4;
 		for (const [sectionId, items] of sectionItems) {
 			const firstPending = items.find((item) => pendingItems.has(item));
 			if (!firstPending) continue;
 			const top = getLayoutOffsetTop(firstPending);
 			const bottom = top + firstPending.offsetHeight;
-			if (top >= scrollTop && bottom <= viewBottom) {
-				items.filter((item) => pendingItems.has(item)).forEach((item, i) => {
-					pendingItems.delete(item);
-					setTimeout(() => item.classList.add('fade-in'), i * 120);
-				});
-				const section = document.getElementById(sectionId);
-				const timeline = section?.querySelector('.timeline');
-				if (timeline) {
-					setTimeout(() => timeline.classList.add('line-growing'), 120);
-				}
-				if (section?.querySelector('.wave-layout')) {
-					setTimeout(() => startWaveAnimation(), 120);
-				}
+			if ((top >= scrollTop && bottom <= viewBottom) || atPageBottom) {
+				revealSectionItems(sectionId, items);
 			}
 		}
 	}
@@ -648,11 +677,13 @@ import TimelineItem from '../components/TimelineItem.astro';
 	// used by checkItemVisibility — keeps blob and cascade in sync bidirectionally
 	function getActiveZone(): number {
 		const trigger = window.scrollY + window.innerHeight * (1 / 2);
+		const lastTrigger = window.scrollY + window.innerHeight * 0.9;
 		let zone = 0;
 		for (let i = 0; i < sectionEls.length; i++) {
 			const titleEl = sectionTitles[i] ?? sectionEls[i];
 			const bottom = getLayoutOffsetTop(titleEl) + titleEl.offsetHeight;
-			if (bottom <= trigger) zone = i + 1;
+			const t = i === sectionEls.length - 1 ? lastTrigger : trigger;
+			if (bottom <= t) zone = i + 1;
 		}
 		return zone;
 	}
@@ -697,13 +728,15 @@ import TimelineItem from '../components/TimelineItem.astro';
 
 	let waveReady = false;
 	let waveTotalLength = 0;
-
+	let waveAnchors: { tailsGroup: SVGGElement; dot: SVGCircleElement }[] = [];
+	let anchorLengths: number[] = [];
 	function setupWavePath() {
 		if (!waveLayout || !waveSvg || !wavePath || !wavePathGlow || !waveProjects || waveProjects.length === 0) return;
 
 		const layoutW = waveLayout.offsetWidth;
 		const layoutH = waveLayout.offsetHeight;
-		waveSvg.setAttribute('viewBox', `0 0 ${layoutW} ${layoutH}`);
+		waveSvg.setAttribute('width', String(layoutW));
+		waveSvg.setAttribute('height', String(layoutH));
 
 		const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 		const startX = 1.68 * rem;
@@ -717,18 +750,22 @@ import TimelineItem from '../components/TimelineItem.astro';
 			bridgeY = -(wlTop - tlBottom); // negative Y = above the wave-layout
 		}
 
-		// Get each card's center position (layout-based, unaffected by transform)
+		// Card anchor points (used for dots, pulses, anchors)
 		const points: { x: number; y: number }[] = [];
 		waveProjects.forEach((card) => {
-			const cx = card.offsetLeft + card.offsetWidth / 2;
-			const cy = card.offsetTop + card.offsetHeight / 2;
-			points.push({ x: cx, y: cy });
+			points.push({ x: layoutW / 2, y: card.offsetTop + card.offsetHeight / 2 });
 		});
 
-		// Build path: starts at experience line bottom, curves through card centers
+		// Path waypoints: extra transition point above first card so the curve
+		// from startX settles to center BEFORE reaching the Redub dot
+		const firstCard = waveProjects[0];
+		const transitionPt = { x: layoutW / 2, y: firstCard.offsetTop + 80 };
+		const pathPoints = [transitionPt, ...points];
+
+		// Build path: starts at experience line bottom, curves through pathPoints
 		let d = `M ${startX} ${bridgeY}`;
-		points.forEach((pt, i) => {
-			const prev = i === 0 ? { x: startX, y: bridgeY } : points[i - 1];
+		pathPoints.forEach((pt, i) => {
+			const prev = i === 0 ? { x: startX, y: bridgeY } : pathPoints[i - 1];
 			const midY = (prev.y + pt.y) / 2;
 			d += ` C ${prev.x} ${midY}, ${pt.x} ${midY}, ${pt.x} ${pt.y}`;
 		});
@@ -746,10 +783,117 @@ import TimelineItem from '../components/TimelineItem.astro';
 		if (waveTail) { waveTail.style.strokeDasharray = `0 ${waveTotalLength}`; waveTail.style.strokeDashoffset = '0'; }
 		if (waveHover) { waveHover.style.strokeDasharray = String(waveTotalLength); waveHover.style.strokeDashoffset = String(waveTotalLength); }
 
+		// Update fading gradient to span the actual path extent (bridgeY → layoutH)
+		const wavePathGradEl = waveSvg.querySelector<SVGLinearGradientElement>('#wave-path-grad');
+		if (wavePathGradEl) {
+			wavePathGradEl.setAttribute('y1', String(bridgeY));
+			wavePathGradEl.setAttribute('y2', String(layoutH));
+		}
+
+		// Rebuild SVG anchor dots + tails (one group per card)
+		waveSvg.querySelectorAll('.wave-anchor-group').forEach(el => el.remove());
+		waveSvg.querySelectorAll('[id^="wag-up-"],[id^="wag-dn-"]').forEach(el => el.remove());
+		waveAnchors = [];
+		const ANCHOR_TAIL = 60;
+		const svgDefs = waveSvg.querySelector('defs')!;
+		const NS = 'http://www.w3.org/2000/svg';
+
+		points.forEach((pt, i) => {
+			// Upper tail gradient: transparent at top → white at dot
+			const upGrad = document.createElementNS(NS, 'linearGradient');
+			upGrad.id = `wag-up-${i}`;
+			upGrad.setAttribute('gradientUnits', 'userSpaceOnUse');
+			upGrad.setAttribute('x1', String(pt.x)); upGrad.setAttribute('y1', String(pt.y - ANCHOR_TAIL));
+			upGrad.setAttribute('x2', String(pt.x)); upGrad.setAttribute('y2', String(pt.y));
+			upGrad.innerHTML = '<stop offset="0%" stop-color="#fff" stop-opacity="0"/><stop offset="40%" stop-color="#fff" stop-opacity="0.4"/><stop offset="75%" stop-color="#fff" stop-opacity="0.8"/><stop offset="100%" stop-color="#fff" stop-opacity="1"/>';
+			svgDefs.appendChild(upGrad);
+
+			// Lower tail gradient: white at dot → transparent at bottom
+			const dnGrad = document.createElementNS(NS, 'linearGradient');
+			dnGrad.id = `wag-dn-${i}`;
+			dnGrad.setAttribute('gradientUnits', 'userSpaceOnUse');
+			dnGrad.setAttribute('x1', String(pt.x)); dnGrad.setAttribute('y1', String(pt.y));
+			dnGrad.setAttribute('x2', String(pt.x)); dnGrad.setAttribute('y2', String(pt.y + ANCHOR_TAIL));
+			dnGrad.innerHTML = '<stop offset="0%" stop-color="#fff" stop-opacity="1"/><stop offset="25%" stop-color="#fff" stop-opacity="0.8"/><stop offset="60%" stop-color="#fff" stop-opacity="0.4"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/>';
+			svgDefs.appendChild(dnGrad);
+
+			// Group
+			const group = document.createElementNS(NS, 'g');
+			group.classList.add('wave-anchor-group');
+
+			// Tails (hidden by default)
+			const tailsGroup = document.createElementNS(NS, 'g') as SVGGElement;
+			tailsGroup.style.opacity = '0';
+			tailsGroup.style.transition = 'opacity 0.3s ease';
+
+			const upLine = document.createElementNS(NS, 'line');
+			upLine.setAttribute('x1', String(pt.x)); upLine.setAttribute('y1', String(pt.y));
+			upLine.setAttribute('x2', String(pt.x)); upLine.setAttribute('y2', String(pt.y - ANCHOR_TAIL));
+			upLine.setAttribute('stroke', `url(#wag-up-${i})`); upLine.setAttribute('stroke-width', '2');
+			tailsGroup.appendChild(upLine);
+
+			const dnLine = document.createElementNS(NS, 'line');
+			dnLine.setAttribute('x1', String(pt.x)); dnLine.setAttribute('y1', String(pt.y));
+			dnLine.setAttribute('x2', String(pt.x)); dnLine.setAttribute('y2', String(pt.y + ANCHOR_TAIL));
+			dnLine.setAttribute('stroke', `url(#wag-dn-${i})`); dnLine.setAttribute('stroke-width', '2');
+			tailsGroup.appendChild(dnLine);
+
+			group.appendChild(tailsGroup);
+
+			// Dot circle
+			const dot = document.createElementNS(NS, 'circle') as SVGCircleElement;
+			dot.setAttribute('cx', String(pt.x)); dot.setAttribute('cy', String(pt.y));
+			dot.setAttribute('r', '5.5');
+			dot.setAttribute('fill', 'rgba(255,255,255,0.2)');
+			dot.style.transition = 'fill 0.3s ease, filter 0.3s ease';
+			group.appendChild(dot);
+
+			waveSvg.appendChild(group);
+			waveAnchors.push({ tailsGroup, dot });
+		});
+
+		// Compute path length at each anchor point via binary search on y
+		anchorLengths = points.map(pt => {
+			let lo = 0, hi = waveTotalLength;
+			for (let iter = 0; iter < 32; iter++) {
+				const mid = (lo + hi) / 2;
+				if (wavePath.getPointAtLength(mid).y < pt.y) lo = mid;
+				else hi = mid;
+			}
+			return (lo + hi) / 2;
+		});
+
 		waveReady = true;
 	}
 
 	setupWavePath();
+
+	function pulseAnchorDot(i: number) {
+		const anchor = waveAnchors[i];
+		if (!anchor) return;
+		const dot = anchor.dot;
+		const BASE_R = 5.5, PEAK_R = 11, DURATION = 500;
+		const start = performance.now();
+		dot.style.transition = 'none';
+		function frame(now: number) {
+			const t = Math.min((now - start) / DURATION, 1);
+			// Expand (0–35%) then contract (35–100%)
+			const progress = t < 0.35 ? t / 0.35 : 1 - (t - 0.35) / 0.65;
+			dot.setAttribute('r', String(BASE_R + (PEAK_R - BASE_R) * progress));
+			dot.setAttribute('fill', `rgba(255,255,255,${0.2 + 0.8 * progress})`);
+			dot.style.filter = progress > 0
+				? `drop-shadow(0 0 ${4 * progress}px rgba(255,255,255,0.9)) drop-shadow(0 0 ${8 * progress}px rgba(255,255,255,0.4))`
+				: '';
+			if (t < 1) requestAnimationFrame(frame);
+			else {
+				dot.setAttribute('r', String(BASE_R));
+				dot.setAttribute('fill', 'rgba(255,255,255,0.2)');
+				dot.style.filter = '';
+				dot.style.transition = 'fill 0.3s ease, filter 0.3s ease';
+			}
+		}
+		requestAnimationFrame(frame);
+	}
 
 	function startWaveAnimation() {
 		if (!waveReady || !wavePath || !wavePathGlow || !waveLeadingDot) return;
@@ -765,6 +909,7 @@ import TimelineItem from '../components/TimelineItem.astro';
 
 		const TAIL_LENGTH = 140;
 		const GLOW_TAIL = 25;
+		const pulsed = new Array(anchorLengths.length).fill(false);
 
 		function updateTailGradient(headLen: number) {
 			if (!waveTailGrad || !wavePath) return;
@@ -782,6 +927,14 @@ import TimelineItem from '../components/TimelineItem.astro';
 			const t = Math.min(elapsed / duration, 1);
 			const eased = 1 - Math.pow(1 - t, 2.5);
 			const drawn = eased * waveTotalLength;
+
+			// Pulse anchor dots as the comet reaches them
+			anchorLengths.forEach((len, i) => {
+				if (!pulsed[i] && drawn >= len) {
+					pulsed[i] = true;
+					pulseAnchorDot(i);
+				}
+			});
 
 			// Main path + hover: reveal up to drawn length
 			wavePath!.style.strokeDashoffset = String(waveTotalLength - drawn);
@@ -879,5 +1032,137 @@ import TimelineItem from '../components/TimelineItem.astro';
 			waveHoverGrad.setAttribute('cx', String(mx));
 			waveHoverGrad.setAttribute('cy', String(my));
 		}
+	});
+
+	// Resize: recompute wave path positions
+	window.addEventListener('resize', () => { setupWavePath(); });
+
+	// ── Project overlay ──────────────────────────
+	const overlay      = document.getElementById('project-overlay')!;
+	const overlayImg   = document.getElementById('overlay-img') as HTMLImageElement;
+	const overlayPrev  = document.getElementById('overlay-prev')!;
+	const overlayNext  = document.getElementById('overlay-next')!;
+	const overlayCounter = document.getElementById('overlay-counter')!;
+	const overlayClose = document.getElementById('overlay-close')!;
+	const overlayTitle = document.getElementById('overlay-title')!;
+	const overlayDesc  = document.getElementById('overlay-desc')!;
+	const overlayLinks = document.getElementById('overlay-links')!;
+
+	interface ProjectDetail {
+		title: string;
+		description: string;
+		images: string[];
+		links: { github?: string; live?: string };
+	}
+
+	const projectDetails: ProjectDetail[] = [
+		{
+			title: 'Redub',
+			description: 'Lose the Captions! \n' +
+				'Multi stage, per user fine-tunable, ML pipeline for Video and Audio Translation. 67% decrease in compute cost compared to industry leading models from HeyGen. ',
+			images: ['/projects/redub/redub1.jpg', '/projects/redub/redub2.jpg', '/projects/redub/redub3.jpg'],
+			links: { github: 'https://github.com/cli05/re-dub' },
+		},
+		{
+			title: 'Ember',
+			description: 'Progressive Web App for Decentralized Distribution of Resources during Natural Disasters, utilizing Dedalus MCP integration.',
+			images: ['/projects/ember/ember1.png', '/projects/ember/ember2.png', '/projects/ember/ember3.png'],
+			links: { github: 'https://github.com/KeshavSree/ember' },
+		},
+		{
+			title: 'KiharaLab Protein Function Prediction',
+			description: 'Integrating and Optimizing protein function prediction tooling from 12+ years ago with modern web frameworks.',
+			images: ['/projects/kiharalab/Kihara1.png', '/projects/kiharalab/Kihara2.png', '/projects/kiharalab/Kihara3.png', '/projects/kiharalab/Kihara4.png'],
+			links: { live: 'https://kiharalab.org/pfp' },
+		},
+		{
+			title: 'Spotify Playlist Creator',
+			description: 'Input a playlist from Spotify and extract songs that fit the description you provide. fBThen customize the newly extracted playlist and save it back to Spotify',
+			images: ['/projects/spotify/spotify1.jpg', '/projects/spotify/spotify2.jpg', '/projects/spotify/spotify3.jpg', '/projects/spotify/spotify4.jpg'],
+			links: { github: 'https://github.com/cli05/Playlist_Curator-BMXII' },
+		},
+	];
+
+	let overlayImages: string[] = [];
+	let overlayIdx = 0;
+	let overlayOpen = false;
+
+	function overlayStep(dir: number) {
+		overlayIdx = ((overlayIdx + dir) % overlayImages.length + overlayImages.length) % overlayImages.length;
+		overlayImg.src = overlayImages[overlayIdx];
+		overlayCounter.textContent = `${overlayIdx + 1} / ${overlayImages.length}`;
+	}
+
+	overlayPrev.addEventListener('click', () => overlayStep(-1));
+	overlayNext.addEventListener('click', () => overlayStep(1));
+
+	function openProject(index: number) {
+		if (overlayOpen) return;
+		const d = projectDetails[index];
+		overlayImages = d.images;
+		overlayIdx = 0;
+		overlayImg.src = overlayImages[0] ?? '';
+		overlayImg.alt = d.title;
+		overlayCounter.textContent = overlayImages.length > 1 ? `1 / ${overlayImages.length}` : '';
+		overlayTitle.textContent = d.title;
+		overlayDesc.textContent = d.description;
+		overlayLinks.innerHTML = '';
+		if (d.links.github) {
+			const a = document.createElement('a');
+			a.href = d.links.github;
+			a.target = '_blank';
+			a.rel = 'noopener';
+			a.className = 'overlay-link';
+			a.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub`;
+			overlayLinks.appendChild(a);
+		}
+		if (d.links.live) {
+			const a = document.createElement('a');
+			a.href = d.links.live;
+			a.target = '_blank';
+			a.rel = 'noopener';
+			a.className = 'overlay-link';
+			a.innerHTML = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5C2 13.216 2.784 14 3.75 14h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"/></svg>Live`;
+			overlayLinks.appendChild(a);
+		}
+		overlay.classList.add('active');
+		document.body.style.overflow = 'hidden';
+		overlayOpen = true;
+	}
+
+	function closeProject() {
+		if (!overlayOpen) return;
+		overlay.classList.remove('active');
+		document.body.style.overflow = '';
+		overlayOpen = false;
+	}
+
+	overlayClose.addEventListener('click', closeProject);
+	overlay.querySelector('.overlay-backdrop')!.addEventListener('click', closeProject);
+
+	document.addEventListener('keydown', (e) => {
+		if (!overlayOpen) return;
+		if (e.key === 'Escape') closeProject();
+		if (e.key === 'ArrowLeft')  overlayStep(-1);
+		if (e.key === 'ArrowRight') overlayStep(1);
+	});
+
+	// Wire up click + hover handlers
+	waveProjects?.forEach((proj, i) => {
+		proj.querySelector('.wave-card')?.addEventListener('click', () => openProject(i));
+		proj.addEventListener('mouseenter', () => {
+			const a = waveAnchors[i];
+			if (!a) return;
+			a.dot.setAttribute('fill', '#fff');
+			a.dot.style.filter = 'drop-shadow(0 0 4px rgba(255,255,255,0.9)) drop-shadow(0 0 8px rgba(255,255,255,0.4))';
+			a.tailsGroup.style.opacity = '1';
+		});
+		proj.addEventListener('mouseleave', () => {
+			const a = waveAnchors[i];
+			if (!a) return;
+			a.dot.setAttribute('fill', 'rgba(255,255,255,0.2)');
+			a.dot.style.filter = '';
+			a.tailsGroup.style.opacity = '0';
+		});
 	});
 </script>
